@@ -1,0 +1,3 @@
+node_modules/
+.specify/feature.json
+.specify/extensions/*/local-config.yml

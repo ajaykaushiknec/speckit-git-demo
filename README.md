@@ -1,0 +1,1 @@
+Speckit Git Extension Demo Project

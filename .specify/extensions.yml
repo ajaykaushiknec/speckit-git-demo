@@ -1,0 +1,35 @@
+installed:
+  - git
+settings:
+  auto_execute_hooks: true
+hooks:
+  before_constitution:
+    - extension: git
+      command: speckit.git.init
+      description: "Initialize git repository if not already initialized"
+      optional: false
+      enabled: true
+  before_specify:
+    - extension: git
+      command: speckit.git.feature
+      description: "Create a new feature branch before specification"
+      optional: false
+      enabled: true
+  after_specify:
+    - extension: git
+      command: speckit.git.commit
+      description: "Auto-commit spec artifacts after specification"
+      optional: false
+      enabled: true
+  after_plan:
+    - extension: git
+      command: speckit.git.commit
+      description: "Auto-commit plan artifacts after planning"
+      optional: false
+      enabled: true
+  after_implement:
+    - extension: git
+      command: speckit.git.commit
+      description: "Auto-commit implementation artifacts after implement"
+      optional: false
+      enabled: true

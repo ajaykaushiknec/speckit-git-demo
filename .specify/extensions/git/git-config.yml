@@ -1,0 +1,22 @@
+git:
+  auto_commit:
+    default: true
+    after_specify:
+      enabled: true
+      message_prefix: "spec"
+    after_plan:
+      enabled: true
+      message_prefix: "plan"
+    after_implement:
+      enabled: true
+      message_prefix: "impl"
+
+  feature_branch:
+    prefix: ""
+    naming: "sequential"
+
+  main_branch: "main"
+
+  scripts:
+    shell: "bash"
+    path: "scripts/bash"
