@@ -9,27 +9,74 @@ hooks:
       description: "Initialize git repository if not already initialized"
       optional: false
       enabled: true
+
   before_specify:
     - extension: git
       command: speckit.git.feature
       description: "Create a new feature branch before specification"
       optional: false
       enabled: true
+
   after_specify:
     - extension: git
       command: speckit.git.commit
       description: "Auto-commit spec artifacts after specification"
       optional: false
       enabled: true
+    - extension: git
+      command: speckit.git.push
+      description: "Push to remote after spec commit"
+      optional: true
+      enabled: false
+
+  after_clarify:
+    - extension: git
+      command: speckit.git.commit
+      description: "Auto-commit after clarification"
+      optional: true
+      enabled: true
+
+  before_plan:
+    - extension: git
+      command: speckit.git.commit
+      description: "Save progress before planning"
+      optional: true
+      enabled: true
+
   after_plan:
     - extension: git
       command: speckit.git.commit
       description: "Auto-commit plan artifacts after planning"
       optional: false
       enabled: true
+    - extension: git
+      command: speckit.git.push
+      description: "Push to remote after plan commit"
+      optional: true
+      enabled: false
+
+  before_implement:
+    - extension: git
+      command: speckit.git.commit
+      description: "Save progress before implementation"
+      optional: true
+      enabled: true
+
   after_implement:
     - extension: git
       command: speckit.git.commit
-      description: "Auto-commit implementation artifacts after implement"
+      description: "Auto-commit implementation artifacts"
       optional: false
+      enabled: true
+    - extension: git
+      command: speckit.git.push
+      description: "Push to remote after implementation commit"
+      optional: true
+      enabled: true
+
+  after_tasks:
+    - extension: git
+      command: speckit.git.commit
+      description: "Auto-commit task artifacts"
+      optional: true
       enabled: true
