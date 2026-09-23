@@ -1,3 +1,13 @@
 node_modules/
+dist/
+build/
+*.log
+.env*
+
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+
 .specify/feature.json
 .specify/extensions/*/local-config.yml
